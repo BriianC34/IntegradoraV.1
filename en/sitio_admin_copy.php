@@ -1,21 +1,42 @@
+
 <?php
-include('config.php');
-$montados= "SELECT * FROM montados_view";
-$tortas= "SELECT * FROM tortas_view";
-$hamburguesas= "SELECT * FROM hamburguesas_view";
-$tacos= "SELECT * FROM tacos_view";
-$bebidas="SELECT * FROM bebidas_view";
+  session_start();
+  error_reporting(0);
+  $email=$_SESSION['email'];
+  $passwd=$_SESSION['passwd'];
+  $_SESSION["admin_mail"]="montados.pegajoso@gmail.com";
+$_SESSION["admin_pass"]="MontajosoS32";
+
+$admin_pass = $_SESSION["admin_pass"];
+$admin_mail = $_SESSION["admin_mail"];
+
+if($email== null || $email='' || $passwd== null || $passwd='' || $email!="montados.pegajoso@gmail.com" && $passwd!="MontajosoS32"){
+    // header("location:login.html");
+
+    echo'<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <div class="alert alert-danger" role="alert">
+    Sorry! you need to <a href="login.html" class="alert-link">log in </a>before accesing this page.
+  </div>';
+    die();
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="shortcut icon" href="img/favicon.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/fa00ec70b3.js" crossorigin="anonymous"></script>
-<title>Montados el pegajoso</title>
-<meta name="description" content="">
-<meta name="author" content="">
+<title>El pegajoso</title>
+<meta name="description" content="El pegajoso, sitio web oficial">
+<meta name="author" content="Team-Devra">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
@@ -50,13 +71,22 @@ $bebidas="SELECT * FROM bebidas_view";
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about" class="page-scroll">Location</a></li>
+        <li><a href="#restaurant-menu" class="page-scroll">Menu</a></li>
+        <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
         
-        <li><a href="../en/index.php" class="page-scroll">EN</a></li>
-        <li><a href="#restaurant-menu" class="page-scroll">Menú</a></li>
-        <li><a href="#portfolio" class="page-scroll">Galería</a></li>
-        <li><a href="#call-reservation" class="page-scroll">Ubicación</a></li>
-        <li><a href="login.html" class="page-scroll">Iniciar sesión</a></li>
+<?php
+if(!isset($email)){
+ header("location:login.html");
+}else{
+?>
+<li><a href="salir.php" class="page-scroll">Exit</a></li>
+<?php
+}
+
+?>
         
+        <li><a href="#call-reservation" class="page-scroll">Contact</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -71,7 +101,7 @@ $bebidas="SELECT * FROM bebidas_view";
           <div class="intro-text">
             <h1>El pegajoso</h1>
             <p>Montados / Tortas / Hamburguesas / Tacos</p>
-            <a href="#about" class="btn btn-custom btn-lg page-scroll">Sobre nosotros</a> </div>
+            <a href="#about" class="btn btn-custom btn-lg page-scroll">About Us</a> </div>
         </div>
       </div>
     </div>
@@ -88,7 +118,7 @@ $bebidas="SELECT * FROM bebidas_view";
         <div class="about-text">
           <h2>Montados "El pegajoso"</h2>
           <hr>
-          <p>¿Se te anotojó una rica torta, hamburguesa o montado? estás en el lugar indicado, ¡ven a probar nuestro delicioso sazón!</p>
+          <p>¿Se te anotjó una rica torta, hamburguesa o montado? ¡Estás en el lugar indicado, ven a probar nuestro delicioso sabor!</p>
          <p>Montados el pegajoso, ricas hamburguesas a un precio muy accesible, ¡ven y visitanos!</p>
         </div>
       </div>
@@ -101,97 +131,85 @@ $bebidas="SELECT * FROM bebidas_view";
     <div class="overlay">
       <h2>Menú</h2>
       <hr>
-      <p>Precios desde los $45 hasta los $90 pesos 🤑</p>
+      <p>Precios de $45 hasta los $90 pesos 🤑</p>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-
         <div class="menu-section">
           <h2 class="menu-section-title">Montados</h2>
-          <hr> 
-        <div class="menu-item"><?php 
-             $consulta=mysqli_query($conexion,$montados);
-              while($row=mysqli_fetch_assoc($consulta)){ ?>
-            <div class="menu-item-name"><?php echo $row['producto']; ?></div>
-            <div class="menu-item-price"><?php echo "$",$row['precio']; ?></div>
-            <div class="menu-item-description"><?php echo $row['informacion']; ?></div>  
-            </div><?php } mysqli_free_result($consulta);?> 
+          <hr>
+          <div class="menu-item">
+            <div class="menu-item-name"> Montado </div>
+            <div class="menu-item-price"> $60 </div>
+            <div class="menu-item-description"> (Carne, Jamón, Queso, Aguacate, Lechuga, Tomate y Aderezos) </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name"> Montado Gigante </div>
+            <div class="menu-item-price"> $80 </div>
+            <div class="menu-item-description"> (Carne, Jamón, Queso, Aguacate, Lechuga, Tomate y Aderezos) </div>
+          </div>
+        </div>
       </div>
-      <div class="container">
-      <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="menu-section">
           <h2 class="menu-section-title">Tortas</h2>
           <hr>
-          <div class="menu-item"><?php 
-             $consulta=mysqli_query($conexion,$tortas);
-              while($row=mysqli_fetch_assoc($consulta)){ ?>
-            <div class="menu-item-name"><?php echo $row['producto']; ?></div>
-            <div class="menu-item-price"><?php echo "$",$row['precio']; ?></div>
-            <div class="menu-item-description"><?php echo $row['informacion']; ?></div>
-            <?php } mysqli_free_result($consulta);?> </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6" style="padding-top:75px;">
-        <div class="menu-section">
-          <h2 class="menu-section-title">Hamburguesas</h2>
-          <hr>
-          <div class="menu-item" ><?php 
-             $consulta=mysqli_query($conexion,$hamburguesas);
-              while($row=mysqli_fetch_assoc($consulta)){ ?>
-            <div class="menu-item-name"><?php echo $row['producto']; ?></div>
-            <div class="menu-item-price"><?php echo "$",$row['precio']; ?></div>
-            <div class="menu-item-description"><?php echo $row['informacion']; ?></div>
-            <?php } mysqli_free_result($consulta);?>
+          <div class="menu-item">
+            <div class="menu-item-name"> Torta Sencilla </div>
+            <div class="menu-item-price"> $45 </div>
+            <div class="menu-item-description"> (Carne, Lechuga, Tomate y Aderezos) </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name"> Torta Especial </div>
+            <div class="menu-item-price"> $60 </div>
+            <div class="menu-item-description"> (Carne, Jamón, Queso, Aguacate, Lechuga, Tomate y Aderezos) </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name"> Torta (La pegajosa) </div>
+            <div class="menu-item-price"> $80 </div>
+            <div class="menu-item-description"> (Carne bistec, Carne de hamburguesa, Aguacate, Queso, Jamón, Lechuga, Tomate y Aderezos) </div>
           </div>
         </div>
       </div>
-      <div class="container">
-      <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="menu-section">
+          <h2 class="menu-section-title">Hamburguesas</h2>
+          <hr>
+          <div class="menu-item">
+            <div class="menu-item-name"> Hamburguesa Sencilla </div>
+            <div class="menu-item-price"> $40 </div>
+            <div class="menu-item-description"> (Carne, Aguacate, Jamón, Aderezos, Queso, Lechuga y Tomate) </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name"> Hamburguesa Especial </div>
+            <div class="menu-item-price"> $50 </div>
+            <div class="menu-item-description"> (Carne, Aguacate, Jamón, Aderezos, Queso, Lechuga y Tomate) </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name"> Hamburguesa Doble </div>
+            <div class="menu-item-price"> $65 </div>
+            <div class="menu-item-description"> (2 carnes, Aguacate, 2 Jamones, Aderezos, Queso, Lechuga y Tomate) </div>
+          </div>
+        </div>
+      </div>
       <div class="col-xs-12 col-sm-6">
         <div class="menu-section">
           <h2 class="menu-section-title">Tacos</h2>
           <hr>
-          <div class="menu-item"><?php 
-             $consulta=mysqli_query($conexion,$tacos);
-              while($row=mysqli_fetch_assoc($consulta)){ ?>
-            <div class="menu-item-name"><?php echo $row['producto']; ?></div>
-            <div class="menu-item-price"><?php echo "$",$row['precio']; ?></div>
-            <div class="menu-item-description"><?php echo $row['informacion']; ?></div>
-            <?php } mysqli_free_result($consulta);?>
+          <div class="menu-item">
+            <div class="menu-item-name"> Tacos de harina </div>
+            <div class="menu-item-price"> $50 </div>
+            <div class="menu-item-description"> (Cilantro y Tomate) </div>
           </div>
-        </div>
-      </div>
-      <div class="container" >
-      <div class="row">
-      <div class="col-xs-12 col-sm-6" >
-        <div class="menu-section">
-          <h2 class="menu-section-title">Bebidas</h2>
-          <hr>
-          <div class="menu-item"><?php 
-             $consulta=mysqli_query($conexion,$bebidas);
-              while($row=mysqli_fetch_assoc($consulta)){ ?>
-            <div class="menu-item-name"><?php echo $row['producto']; ?></div>
-            <div class="menu-item-price"><?php echo "$",$row['precio']; ?></div>
-            <div class="menu-item-description"><?php echo $row['informacion']; ?></div>
-            <?php } mysqli_free_result($consulta); mysqli_close($conexion);?>
-          </div>
+          
         </div>
       </div>
     </div>
   </div>
-    </div>
-  </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
 </div>
 <!-- Portfolio Section -->
 <div id="portfolio">
@@ -213,7 +231,6 @@ $bebidas="SELECT * FROM bebidas_view";
               <li><a href="#" data-filter=".tortas">Tortas</a></li>
               <li><a href="#" data-filter=".hamburguesa">Hamburguesas</a></li>
               <li><a href="#" data-filter=".tacos">Tacos</a></li>
-              <li><a href="#" data-filter=".bebidas">Bebidas</a></li>
             </ol>
           </li>
         </ul>
@@ -225,7 +242,7 @@ $bebidas="SELECT * FROM bebidas_view";
 
         <div class="col-sm-6 col-md-4 col-lg-4 montados">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/01-large.jpg" title="Imágen representativa" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/01-large.jpg" title="Imagen representativa" data-lightbox-gallery="gallery1">
               <div class="hover-text">
                 <h4>Montado</h4>
               </div>
@@ -236,7 +253,7 @@ $bebidas="SELECT * FROM bebidas_view";
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="img/portfolio/03-large.jpg" title="Imágen representativa" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Montado gigante</h4>
+                <h4>Montado Gigante</h4>
               </div>
               <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -244,25 +261,25 @@ $bebidas="SELECT * FROM bebidas_view";
 
         <div class="col-sm-6 col-md-4 col-lg-4 tortas">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/06-large.jpg" title="Torta sencilla" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/06-large.jpg" title="Dish Name" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Torta sencilla</h4>
+                <h4>Torta Sencilla</h4>
               </div>
               <img src="img/portfolio/06-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 tortas">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/07-large.jpg" title="Torta especial" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/07-large.jpg" title="Dish Name" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Torta especial</h4>
+                <h4>Torta Especial</h4>
               </div>
               <img src="img/portfolio/07-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 tortas">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/08-large.jpg" title="Torta(La pegajosa)" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/08-large.jpg" title="Dish Name" data-lightbox-gallery="gallery1">
               <div class="hover-text">
                 <h4>Torta (La pegajosa)</h4>
               </div>
@@ -272,18 +289,18 @@ $bebidas="SELECT * FROM bebidas_view";
 
         <div class="col-sm-6 col-md-4 col-lg-4 hamburguesa">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/02-large.jpg" title="Hamburguesa sencilla" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/02-large.jpg" title="Dish Name" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Hamburguesa sencilla</h4>
+                <h4>Hamburguesa Sencilla</h4>
               </div>
               <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 hamburguesa">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Hamburguesa especial" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Hamburguesa Especial" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Hamburguesa especial</h4>
+                <h4>Hamburguesa Especial</h4>
               </div>
               <img src="img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -292,7 +309,7 @@ $bebidas="SELECT * FROM bebidas_view";
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="img/portfolio/09-large.jpg" title="Imágen representativa" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Hamburguesa doble</h4>
+                <h4>Hamburguesa Doble</h4>
               </div>
               <img src="img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -307,66 +324,6 @@ $bebidas="SELECT * FROM bebidas_view";
               <img src="img/portfolio/13-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-4 bebidas">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/20-large.png" title="Coca cola" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Coca cola</h4>
-              </div>
-              <img src="img/portfolio/20-small.png" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-4 bebidas">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/21-large.png" title="Fanta de naranja" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Fanta de naranja</h4>
-              </div>
-              <img src="img/portfolio/21-small.png" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-4 bebidas">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/22-large.png" title="Fanta de fresa" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Fanta de fresa</h4>
-              </div>
-              <img src="img/portfolio/22-small.png" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-4 bebidas">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/23-large.png" title="Fresca" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Fresca</h4>
-              </div>
-              <img src="img/portfolio/23-small.png" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-4 bebidas">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/24-large.png" title="Manzanita" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Manzanita</h4>
-              </div>
-              <img src="img/portfolio/24-small.png" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-4 bebidas">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/25-large.png" title="Sprite" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Sprite</h4>
-              </div>
-              <img src="img/portfolio/25-small.png" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -375,7 +332,7 @@ $bebidas="SELECT * FROM bebidas_view";
 <!-- Call Reservation Section -->
 <div id="call-reservation" class="text-center">
   <div class="container">
-    <h2>¡No salgas de casa! buscanos en Didi Food o contáctanos para pasar por tu pedido </h2>
+    <h2>¡No salgas de casa! Buscanos en Didi Food o contactanos para pasar por tu pedido </h2>
   </div>
 </div>
 
@@ -399,7 +356,7 @@ $bebidas="SELECT * FROM bebidas_view";
             <h4>Facebook:</h4>
            <p>Montados el pegajoso </p>
 
-           <div class="whatsapp">
+          <div class="whatsapp">
             <a href="https://api.whatsapp.com/send?phone=6144561497"><i class="fab fa-whatsapp"></i></a>
             <h4>Whatsapp:</h4>
             <p>614-456-1497</p>

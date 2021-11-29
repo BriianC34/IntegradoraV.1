@@ -1,13 +1,14 @@
 <?php
-include('config.php');
-$montados= "SELECT * FROM montados_view";
-$tortas= "SELECT * FROM tortas_view";
-$hamburguesas= "SELECT * FROM hamburguesas_view";
-$tacos= "SELECT * FROM tacos_view";
-$bebidas="SELECT * FROM bebidas_view";
+include("../Plantilla/config.php");
+
+$montados= "SELECT * FROM montados_view_EN";
+$tortas= "SELECT * FROM tortas_view_EN";
+$hamburguesas= "SELECT * FROM hamburguesas_view_EN";
+$tacos= "SELECT * FROM tacos_view_EN";
+$bebidas="SELECT * FROM bebidas_view_EN";
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <link rel="shortcut icon" href="img/favicon.png">
 <meta charset="utf-8">
@@ -51,11 +52,11 @@ $bebidas="SELECT * FROM bebidas_view";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         
-        <li><a href="../en/index.php" class="page-scroll">EN</a></li>
-        <li><a href="#restaurant-menu" class="page-scroll">Menú</a></li>
-        <li><a href="#portfolio" class="page-scroll">Galería</a></li>
-        <li><a href="#call-reservation" class="page-scroll">Ubicación</a></li>
-        <li><a href="login.html" class="page-scroll">Iniciar sesión</a></li>
+        <li><a href="../Plantilla/index.php" class="page-scroll">ES</a></li>
+        <li><a href="#restaurant-menu" class="page-scroll">Menu</a></li>
+        <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
+        <li><a href="#call-reservation" class="page-scroll">Location</a></li>
+        <li><a href="login.html" class="page-scroll">Log in</a></li>
         
       </ul>
     </div>
@@ -70,8 +71,8 @@ $bebidas="SELECT * FROM bebidas_view";
         <div class="row">
           <div class="intro-text">
             <h1>El pegajoso</h1>
-            <p>Montados / Tortas / Hamburguesas / Tacos</p>
-            <a href="#about" class="btn btn-custom btn-lg page-scroll">Sobre nosotros</a> </div>
+            <p>Montados / Tortas / Hamburgers / Tacos</p>
+            <a href="#about" class="btn btn-custom btn-lg page-scroll">About us</a> </div>
         </div>
       </div>
     </div>
@@ -88,8 +89,8 @@ $bebidas="SELECT * FROM bebidas_view";
         <div class="about-text">
           <h2>Montados "El pegajoso"</h2>
           <hr>
-          <p>¿Se te anotojó una rica torta, hamburguesa o montado? estás en el lugar indicado, ¡ven a probar nuestro delicioso sazón!</p>
-         <p>Montados el pegajoso, ricas hamburguesas a un precio muy accesible, ¡ven y visitanos!</p>
+          <p>Are you craving for a delicious hamburger or a montado? you are no the right spot! Come and taste our delicious food.</p>
+         <p> Montados el pegajoso, deliciuos food at a low price. Come and visit us!</p>
         </div>
       </div>
     </div>
@@ -99,9 +100,9 @@ $bebidas="SELECT * FROM bebidas_view";
 <div id="restaurant-menu">
   <div class="section-title text-center center">
     <div class="overlay">
-      <h2>Menú</h2>
+      <h2>Menu</h2>
       <hr>
-      <p>Precios desde los $45 hasta los $90 pesos 🤑</p>
+      <p> Our prices range from $45 up to $90. 🤑</p>
     </div>
   </div>
   <div class="container">
@@ -139,7 +140,7 @@ $bebidas="SELECT * FROM bebidas_view";
     <div class="row">
       <div class="col-xs-12 col-sm-6" style="padding-top:75px;">
         <div class="menu-section">
-          <h2 class="menu-section-title">Hamburguesas</h2>
+          <h2 class="menu-section-title">Hamburgers</h2>
           <hr>
           <div class="menu-item" ><?php 
              $consulta=mysqli_query($conexion,$hamburguesas);
@@ -171,7 +172,7 @@ $bebidas="SELECT * FROM bebidas_view";
       <div class="row">
       <div class="col-xs-12 col-sm-6" >
         <div class="menu-section">
-          <h2 class="menu-section-title">Bebidas</h2>
+          <h2 class="menu-section-title">Drinks</h2>
           <hr>
           <div class="menu-item"><?php 
              $consulta=mysqli_query($conexion,$bebidas);
@@ -197,9 +198,9 @@ $bebidas="SELECT * FROM bebidas_view";
 <div id="portfolio">
   <div class="section-title text-center center">
     <div class="overlay">
-      <h2>Galería</h2>
+      <h2>Gallery</h2>
       <hr>
-      <p>Conoce más sobre nuestros platillos 😋</p>
+      <p>Know more about our dishes😋</p>
     </div>
   </div>
   <div class="container">
@@ -208,12 +209,12 @@ $bebidas="SELECT * FROM bebidas_view";
         <ul class="cat">
           <li>
             <ol class="type">
-              <li><a href="#" data-filter="*" class="active">Todo</a></li>
+              <li><a href="#" data-filter="*" class="active">All</a></li>
               <li><a href="#" data-filter=".montados">Montados</a></li>
               <li><a href="#" data-filter=".tortas">Tortas</a></li>
-              <li><a href="#" data-filter=".hamburguesa">Hamburguesas</a></li>
+              <li><a href="#" data-filter=".hamburguesa">Hamburgers</a></li>
               <li><a href="#" data-filter=".tacos">Tacos</a></li>
-              <li><a href="#" data-filter=".bebidas">Bebidas</a></li>
+              <li><a href="#" data-filter=".bebidas">Drinks</a></li>
             </ol>
           </li>
         </ul>
@@ -225,7 +226,7 @@ $bebidas="SELECT * FROM bebidas_view";
 
         <div class="col-sm-6 col-md-4 col-lg-4 montados">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/01-large.jpg" title="Imágen representativa" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/01-large.jpg" title="Representative picture" data-lightbox-gallery="gallery1">
               <div class="hover-text">
                 <h4>Montado</h4>
               </div>
@@ -234,9 +235,9 @@ $bebidas="SELECT * FROM bebidas_view";
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 montados">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/03-large.jpg" title="Imágen representativa" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/03-large.jpg" title="Representative picture" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Montado gigante</h4>
+                <h4>Gigant montado</h4>
               </div>
               <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -244,25 +245,25 @@ $bebidas="SELECT * FROM bebidas_view";
 
         <div class="col-sm-6 col-md-4 col-lg-4 tortas">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/06-large.jpg" title="Torta sencilla" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/06-large.jpg" title="Simple torta" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Torta sencilla</h4>
+                <h4>Simple torta</h4>
               </div>
               <img src="img/portfolio/06-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 tortas">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/07-large.jpg" title="Torta especial" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/07-large.jpg" title="Special torta" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Torta especial</h4>
+                <h4>Special torta</h4>
               </div>
               <img src="img/portfolio/07-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 tortas">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/08-large.jpg" title="Torta(La pegajosa)" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/08-large.jpg" title="Torta (La pegajosa)" data-lightbox-gallery="gallery1">
               <div class="hover-text">
                 <h4>Torta (La pegajosa)</h4>
               </div>
@@ -272,27 +273,27 @@ $bebidas="SELECT * FROM bebidas_view";
 
         <div class="col-sm-6 col-md-4 col-lg-4 hamburguesa">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/02-large.jpg" title="Hamburguesa sencilla" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/02-large.jpg" title="Simple hamburger" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Hamburguesa sencilla</h4>
+                <h4>Simple hamburger</h4>
               </div>
               <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 hamburguesa">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Hamburguesa especial" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Special hamburger" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Hamburguesa especial</h4>
+                <h4>Special hamburger</h4>
               </div>
               <img src="img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 hamburguesa">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/09-large.jpg" title="Imágen representativa" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/09-large.jpg" title="Representative picture" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Hamburguesa doble</h4>
+                <h4>Double hamburguer</h4>
               </div>
               <img src="img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -300,9 +301,9 @@ $bebidas="SELECT * FROM bebidas_view";
        
         <div class="col-sm-6 col-md-4 col-lg-4 tacos">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/13-large.jpg" title="Tacos de harina" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/13-large.jpg" title="Flour tortilla tacos" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Tacos de harina</h4>
+                <h4>Flour tortilla Tacos </h4>
               </div>
               <img src="img/portfolio/13-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -312,7 +313,7 @@ $bebidas="SELECT * FROM bebidas_view";
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="img/portfolio/20-large.png" title="Coca cola" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Coca cola</h4>
+                <h4>Coke</h4>
               </div>
               <img src="img/portfolio/20-small.png" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -322,7 +323,7 @@ $bebidas="SELECT * FROM bebidas_view";
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="img/portfolio/21-large.png" title="Fanta de naranja" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Fanta de naranja</h4>
+                <h4>Orange Fanta</h4>
               </div>
               <img src="img/portfolio/21-small.png" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -332,7 +333,7 @@ $bebidas="SELECT * FROM bebidas_view";
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="img/portfolio/22-large.png" title="Fanta de fresa" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Fanta de fresa</h4>
+                <h4>Strawberry Fanta</h4>
               </div>
               <img src="img/portfolio/22-small.png" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -375,7 +376,7 @@ $bebidas="SELECT * FROM bebidas_view";
 <!-- Call Reservation Section -->
 <div id="call-reservation" class="text-center">
   <div class="container">
-    <h2>¡No salgas de casa! buscanos en Didi Food o contáctanos para pasar por tu pedido </h2>
+    <h2>You don't have to leave home! look for us on Didi Food or contact us to pick up your order </h2>
   </div>
 </div>
 
@@ -385,7 +386,7 @@ $bebidas="SELECT * FROM bebidas_view";
 
     <div class="section-title">
       
-      <h2>Contacto:</h2>
+      <h2>Contact information:</h2>
     </div>
 
     <div class="row" data-aos="fade-in">
