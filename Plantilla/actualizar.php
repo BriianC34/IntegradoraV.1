@@ -62,6 +62,7 @@ $id="SELECT * FROM menu WHERE id_menu=$id";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         
+      
         <li><a href="sitio_admin.php" class="page-scroll">Inicio</a></li>
         <?php
 if(!isset($email)){
@@ -104,7 +105,7 @@ if(!isset($email)){
     <tr><?php 
              $consulta=mysqli_query($conexion,$id);
               while($row=mysqli_fetch_assoc($consulta)){ ?>
-      <td><input type="number" disabled  style="height:50px; width:80px;" value="<?php echo $row["id_menu"];?>" name="idmenu"></td>
+      <td><input type="number" readonly  style="height:50px; width:80px;" value="<?php echo $row["id_menu"];?>" name="idmenu"></td>
       <td><input type="text" style="height:50px; width:220px;" value="<?php echo $row["producto"];?>" name="producto"></td>
       <td><input type="text" style="height:70px; width:525px;" value="<?php echo $row["informacion"];?>" name="informacion"></td>
       <td><input type="number" style="height:50px; width:80px;" value="<?php echo $row["precio"];?>" name="precio"></td>

@@ -61,6 +61,7 @@ $refrescos="SELECT * FROM refrescos_view_edit";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         
+      <li><a href="../en/inventario.php" class="page-scroll">EN</a></li>
         <li><a href="sitio_admin.php" class="page-scroll">Inicio</a></li>
         <li><a href="#platillos" class="page-scroll">Platillos</a></li>
         <li><a href="#refrescos" class="page-scroll">Refrescos</a></li>

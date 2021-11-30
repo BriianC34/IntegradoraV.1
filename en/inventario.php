@@ -32,7 +32,7 @@ $refrescos="SELECT * FROM refrescos_view_edit_EN";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario</title>
+    <title>Inventory</title>
     <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
@@ -61,6 +61,7 @@ $refrescos="SELECT * FROM refrescos_view_edit_EN";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         
+      <li><a href="../Plantilla/inventario.php" class="page-scroll" >ES</a></li>
         <li><a href="sitio_admin.php" class="page-scroll">Home</a></li>
         <li><a href="#platillos" class="page-scroll">Dishes</a></li>
         <li><a href="#refrescos" class="page-scroll">Drinks</a></li>

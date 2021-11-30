@@ -8,7 +8,7 @@ session_start();
 $_SESSION['email']=$email;
 $_SESSION['passwd']=$passwd;
 
-$sql = "SELECT * FROM usuarios WHERE email = '$email' AND passwd = '$passwd'";
+$sql = "SELECT * FROM usuarios WHERE email = '$email' AND passwd= '$passwd'";
 $consulta=mysqli_query($conexion,$sql);
 $verify=mysqli_fetch_array($consulta);
     

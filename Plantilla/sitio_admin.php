@@ -71,6 +71,7 @@ $bebidas="SELECT * FROM bebidas_view";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         
+      <li><a href="../en/sitio_admin.php" class="page-scroll">EN</a></li>
         <li><a href="#restaurant-menu" class="page-scroll">Menú</a></li>
         <li><a href="#portfolio" class="page-scroll">Galería</a></li>
         <li><a href="#call-reservation" class="page-scroll">Ubicación</a></li>

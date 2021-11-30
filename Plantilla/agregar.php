@@ -62,6 +62,7 @@ $id="SELECT * FROM menu WHERE id_menu=$id";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         
+      
         <li><a href="sitio_admin.php" class="page-scroll">Inicio</a></li>
         <?php
 if(!isset($email)){
@@ -87,7 +88,11 @@ if(!isset($email)){
         <div class="row">
           <div class="intro-text">
             <h1>Agregar producto</h1><br>
-         
+            <p style="font-family: Cambria, Cochin, Georgia,
+             Times, 'Times New Roman', serif;  color:aliceblue; font-size: 25px;">
+             El tipo de producto es:<br>
+          Comida = 1 <br>
+          Bebidas = 2</p>
     <table style="margin: auto;">
   <thead>
     <tr>

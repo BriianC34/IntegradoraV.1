@@ -27,7 +27,7 @@ $tacos= "SELECT * FROM tacos_view_EN";
 $bebidas="SELECT * FROM bebidas_view_EN";
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <link rel="shortcut icon" href="img/favicon.png">
 <meta charset="utf-8">
@@ -71,6 +71,7 @@ $bebidas="SELECT * FROM bebidas_view_EN";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         
+      <li><a href="../Plantilla/sitio_admin.php" class="page-scroll">ES</a></li>
         <li><a href="#restaurant-menu" class="page-scroll">Menu</a></li>
         <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
         <li><a href="#call-reservation" class="page-scroll">Location</a></li>
@@ -265,7 +266,7 @@ if(!isset($email)){
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="img/portfolio/03-large.jpg" title="Imágen representativa" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Montado gigante</h4>
+                <h4>Giant montado</h4>
               </div>
               <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -310,18 +311,18 @@ if(!isset($email)){
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 hamburguesa">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Hamburguesa Especial" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Special Hamburguer" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Special Hamburguesa</h4>
+                <h4>Special Hamburguer</h4>
               </div>
               <img src="img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 hamburguesa">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/09-large.jpg" title="Imágen representativa" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/09-large.jpg" title="Representative picture" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Double Hamburguesa</h4>
+                <h4>Double hamburger</h4>
               </div>
               <img src="img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -329,9 +330,9 @@ if(!isset($email)){
        
         <div class="col-sm-6 col-md-4 col-lg-4 tacos">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/13-large.jpg" title="Tacos de harina" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/13-large.jpg" title="Flour tortilla Tacos" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Sour tortilla Tacos</h4>
+                <h4>Flour tortilla tacos</h4>
               </div>
               <img src="img/portfolio/13-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
@@ -339,7 +340,7 @@ if(!isset($email)){
 
         <div class="col-sm-6 col-md-4 col-lg-4 bebidas">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/20-large.png" title="Coca cola" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/20-large.png" title="Coke" data-lightbox-gallery="gallery1">
               <div class="hover-text">
                 <h4>Coke</h4>
               </div>

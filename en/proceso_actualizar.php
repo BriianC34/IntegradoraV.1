@@ -28,9 +28,10 @@ $informacion=$_POST['informacion'];
 $precio=$_POST['precio'];
 $estatus=$_POST['estatus'];
 
+
 function comprobar_producto($producto){
   //compruebo que el tamaño del string sea válido.
-  if (strlen($producto)<2 || strlen($producto)>10){
+  if (strlen($producto)<2 || strlen($producto)>40){
     return false;
  }
   //compruebo que los caracteres sean los permitidos
@@ -56,7 +57,7 @@ function comprobar_descripcion($informacion){
 if($estatus>1 || $estatus<0 || $precio<=0 || $precio>999 ||
    comprobar_producto($producto)===false ||comprobar_descripcion($informacion)===false){
     echo'<script>
-    alert("¡Rayos! parece que hubo un problema al actualizar los registros"); window.history.go(-1);
+    alert("Oops! there was a problem updating the records"); window.history.go(-1);
          </script>';
 die();
 }
@@ -71,7 +72,7 @@ if($resultado){
       </script>';
 }else{
     echo'<script>
-    alert("¡Ups! the records were not updated"); window.history.go(-1);
+    alert("¡Oops! the records were not updated"); window.history.go(-1);
          </script>';
 }
 mysqli_close($conexion);

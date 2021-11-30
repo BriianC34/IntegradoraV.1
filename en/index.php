@@ -311,7 +311,7 @@ $bebidas="SELECT * FROM bebidas_view_EN";
 
         <div class="col-sm-6 col-md-4 col-lg-4 bebidas">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/20-large.png" title="Coca cola" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/portfolio/20-large.png" title="Coke" data-lightbox-gallery="gallery1">
               <div class="hover-text">
                 <h4>Coke</h4>
               </div>

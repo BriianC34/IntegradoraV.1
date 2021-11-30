@@ -60,18 +60,17 @@ if($precio<1 || $precio>999 || $tipo<1 || $tipo>2 ||
 die();
 }
 
-$add="INSERT INTO menu(producto,informacion,precio,tipo,estatus)
-VALUES('$producto','$informacion','$precio','$tipo',1)";
-$sql="CALL PR_INSERT_MENU('$producto','$informacion','$precio','$tipo')";
-$resultado=mysqli_query($conexion,$add);
 
-if($add){
+$sql="CALL PR_INSERT_MENU('$producto','$informacion','$precio','$tipo')";
+$resultado=mysqli_query($conexion,$sql);
+
+if($sql){
  echo'<script>
- alert("¡Fabuloso! registros actualizados correctamente");  window.history.go(-2);
+ alert("¡Fabuloso! producto agregado correctamente");  window.history.go(-2);
       </script>';
 }else{
     echo'<script>
-    alert("¡Rayos! parece que hubo un problema al actualizar los registros"); window.history.go(-1);
+    alert("¡Rayos! parece que hubo un problema al agregar el producto"); window.history.go(-1);
          </script>';
 }
 mysqli_close($conexion);

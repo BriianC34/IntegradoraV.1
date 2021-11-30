@@ -22,11 +22,11 @@ if($email== null || $email='' || $passwd== null || $passwd='' || $email!="montad
 
 
 $id=$_GET['id'];
-$id="SELECT * FROM menu WHERE id_menu=$id";
+$id="SELECT * FROM menu_EN WHERE id_menu=$id";
 
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 
 <link rel="shortcut icon" href="img/favicon.png">
@@ -62,6 +62,7 @@ $id="SELECT * FROM menu WHERE id_menu=$id";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         
+       
         <li><a href="sitio_admin.php" class="page-scroll">Home</a></li>
         <?php
 if(!isset($email)){
@@ -87,7 +88,11 @@ if(!isset($email)){
         <div class="row">
           <div class="intro-text">
             <h1>Add a Product</h1><br>
-         
+            <p style="font-family: Cambria, Cochin, Georgia,
+             Times, 'Times New Roman', serif;  color:aliceblue; font-size: 25px;">
+             The type of product is:<br>
+          Food = 1 <br>
+          Drinks = 2</p>
     <table style="margin: auto;">
   <thead>
     <tr>
